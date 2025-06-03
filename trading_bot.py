@@ -6,14 +6,15 @@ from ta.trend import EMAIndicator
 import requests
 from flask import Flask, request
 import threading
+import os
 
 app = Flask(__name__)
 
 # === Token dan Chat ID Telegram ===
-TELEGRAM_TOKEN = '7762444749:AAHMSa0eRMjY5BKQvS3usaObnadt53Se0FA'
+TELEGRAM_TOKEN = os.getenv("7762444749:AAHMSa0eRMjY5BKQvS3usaObnadt53Se0FA")
 BASE_URL = f'https://api.telegram.org/bot{TELEGRAM_TOKEN}'
-GATE_API_KEY = 'fad1b9969ca6bc9dc8532af1add67546'
-GATE_SECRET_KEY = 'COINSTATS_GATEIO'
+GATE_API_KEY = os.getenv("fad1b9969ca6bc9dc8532af1add67546")
+GATE_SECRET_KEY = os.getenv("COINSTATS_GATEIO")
 
 # === Koneksi ke Gate.io API ===
 configuration = Configuration(
